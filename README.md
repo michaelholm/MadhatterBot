@@ -7,6 +7,9 @@ For example try typing 'madhatter actionbutton'
 You can get the whole list of components by typing: 'madhatter components'
 
 Examples:
-  @madhatter actionbutton
-    - or -
-  @madhatter components
+
+@madhatter actionbutton
+
+  -- or --
+
+@madhatter components
