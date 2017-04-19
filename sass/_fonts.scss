@@ -1,0 +1,182 @@
+@import "compass/css3";
+
+//UniversNW02-120CdUlLt
+//#iefix?
+
+@include font-face("Univers",
+  font-files(
+    "f9c3797f-895f-42e2-9e83-9340081311d6.woff"),
+    "3ff7b647-ed35-4a34-a497-0b8e0455ef09.eot",
+    100,
+    normal
+    );
+
+//UniversNW02-121CdUlLtIt
+@include font-face("Univers",
+  font-files(
+    "8bc71584-901a-4693-8940-3980d536044f.woff"),
+    "b5634753-89c7-4a37-9568-a328c300f386.eot",
+    100,
+    italic
+    );
+
+//UniversNW02-220CdThin
+@include font-face("Univers",
+  font-files(
+    "5a67b0ed-239e-4f3e-adeb-8b1e517a5bd3.woff"),
+    "4236b369-2f95-4452-9326-0e51d1087bdc.eot",
+    200,
+    normal
+    );
+
+//UniversNW02-221CdThinIt
+@include font-face("Univers",
+  font-files(
+    "98638e2b-550b-49ea-8332-5593a2fe2033.woff"),
+    "cb8c6016-0466-4218-a6d0-b83dd5ae2996.eot",
+    200,
+    italic
+    );
+
+//UniversNW02-720CdHeavy
+@include font-face("Univers",
+  font-files(
+    "d08e107e-ea48-439e-b08c-d0d5471a8975.woff"),
+    "b09be5ba-6658-4491-b08e-8f0b1d21d497.eot",
+    700,
+    normal
+    );
+
+//UniversNW02-721CdHeavyI
+@include font-face("Univers",
+  font-files(
+    "ab2911a7-f531-474f-8af8-aa2e58d40ae6.woff"),
+    "8677637b-cde3-403b-bf4a-28d000224499.eot",
+    700,
+    italic
+    );
+
+//UniversNW02-420CdRegula
+@include font-face("Univers",
+  font-files(
+    "3b5a7b6a-e026-4ee8-b80f-6aa5e44b2977.woff"),
+    "f1bc8267-a817-408b-a089-4310761881f7.eot",
+    400,
+    normal
+    );
+
+//Univers N W02 421 Cd It
+@include font-face("Univers",
+  font-files(
+    "349356a8-c427-4353-abe1-d39c7df539f9.woff"),
+    "61c3773d-3b20-4a95-a09f-904343b460f0.eot",
+    400,
+    italic
+    );
+
+//UniversNW02-520CdMedium
+@include font-face("Univers",
+  font-files(
+    "656bb203-0436-41f9-8266-de61f5c29096.woff"),
+    "a0041c8f-87d5-4762-9433-d1bd14041dd1.eot",
+    500,
+    normal
+    );
+
+//UniversNW02-521CdMediumIt
+@include font-face("Univers",
+  font-files(
+    "9c82a707-4119-4c01-817e-c2cfc953b4de.woff"),
+    "6befeb18-83da-4132-814a-9e1369c3b992.eot",
+    500,
+    italic
+    );
+
+//UniversNW02-820CdBlk
+@include font-face("Univers",
+  font-files(
+    "80da0bd4-8f50-4837-be27-84c6b117f9f8.woff"),
+    "35350627-d03f-4ad7-911f-ae8b4063ca63.eot",
+    800,
+    normal
+    );
+
+//UniversNW02-821CdBlkIt
+@include font-face("Univers",
+  font-files(
+    "ef937517-6d43-473e-981e-6610f306eb4e.woff"),
+    "201965c2-841f-423b-9094-56aca10ec2bd.eot",
+    800,
+    italic
+    );
+
+//UniversNW02-920CdXBlk
+@include font-face("Univers",
+  font-files(
+    "906166b8-7594-4d10-8fdf-206b9bc15115.woff"),
+    "ea50ef9f-562d-4f7d-92d1-c566a1eb83a5.eot",
+    900,
+    normal
+    );
+
+//UniversNW02-921CdXBlkIt
+@include font-face("Univers",
+  font-files(
+    "25161ad7-3220-49ee-9bd8-c132f02c6898.woff"),
+    "35ce1105-0435-47a5-ac6e-ad322ad92c69.eot",
+    900,
+    italic
+    );
+
+// UniversNW02-320CdLt
+@include font-face("Univers",
+  font-files(
+    "600bda4e-11fe-4903-9a39-bb6b77389170.woff"),
+    "fd397187-4d65-4b13-99ac-e43b94abebcc.eot",
+    300,
+    normal
+    );
+
+// UniversNW02-321CdLtIt
+@include font-face("Univers",
+  font-files(
+    "ad9474ef-b7cb-44d8-9f0b-9b9a3c8ade82.woff"),
+    "59c5b361-6c9e-4924-b1eb-ae04b99c17d5.eot",
+    300,
+    italic
+    );
+
+// UniversNW02-620CdBold
+@include font-face("Univers",
+  font-files(
+    "a55d5255-e095-4e87-ac0d-fe0968b0a9c6.woff"),
+    "8ce6a630-11cb-4fba-be7f-e9f01c898ea2.eot",
+    600,
+    normal
+    );
+
+
+// UniversNW02-621CdBoldIt
+@include font-face("Univers",
+  font-files(
+    "7e934f19-8ce1-4c95-9e01-2f39b29b0351.woff"),
+    "ec852ebf-73a2-4bf2-93b1-b36626e05f18.eot",
+    600,
+    italic
+    );
+
+@mixin bold {
+  font-weight: bold;
+}
+
+@mixin italic {
+  font-style: italic;
+}
+
+.bold {
+  @include bold;
+}
+
+.italic {
+  @include italic;
+}

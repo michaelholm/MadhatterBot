@@ -1,0 +1,277 @@
+ /******************************************************************
+/* Buttons
+******************************************************************/
+
+/******************************************************************
+/* Base styles
+******************************************************************/
+
+// Core styles
+.btn {
+  font-size: 16px;
+  color: $text2;
+  background-color: transparent;
+  border: 1px solid;
+  border-color: $defaultUI;
+  border-radius: 24px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 18px;
+  padding-right: 18px;
+  height: 30px;
+  min-width: 70px;
+
+  &:focus {
+    color: $text1;
+    background-color: $defaultUI;
+  }
+
+  &:hover,
+  &:focus {
+    color: $GS0;
+    background-color: $defaultUI;
+  }
+
+  &:active,
+  &.active {
+    color: $textHighlight;
+    background-color: $btnPress;
+    border-color: $btnPress;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    @include box-shadow(none);
+  }
+
+}
+
+/******************************************************************
+/* Alternate buttons
+******************************************************************/
+
+.btn-default {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+  &:active, &.active {
+    color: $textPressed;
+    background-color: $btnPress;
+  }
+
+  &:hover,
+  &:focus {
+    color: $text1;
+    background-color: $defaultUI;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    opacity: 0.35;
+  }
+}
+
+//don't know how to resolve it by referring to a variable.
+//so i just hardcode it.
+//prob we'll change it lately.
+.btn-fix {
+  border-color:#999;
+  color:#999;
+  
+  &:hover,
+  &:focus {
+
+  }
+
+  &:active {
+
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    border-color:#ddd;
+    color:#ddd;
+    background-color:transparent;
+  }
+}
+
+.btn-primary {
+  @include button-variant($textHover, $btn-primary-bg, $btn-primary-border);
+  &:active, &.active {
+    color: $textHover;
+    background-color: $system-tint1;
+    border-color: $system-tint1;
+  }
+
+  &:hover,
+  &:focus {
+    color: $textHover;
+    background-color: $system-tint2;
+    border-color: $system-tint2;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    opacity: 0.35;
+  }
+}
+
+.btn-text {
+  color: $linkDefault;
+  border: 0;
+  border-radius: 0;
+  font-size: 16px;
+  text-decoration: underline;
+  text-decoration-style: 1px solid;
+  text-decoration-color: $rule2;
+  padding-bottom: 1px;
+
+  &:active, &.active {
+    color: $textHover; 
+    text-decoration-color: $rule2;
+    background-color: transparent;
+  }
+
+  &:hover,
+  &:focus {
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: $text1;
+    text-decoration-color: $rule1;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    opacity: 0.35;
+  }
+}
+
+
+/******************************************************************
+** Link buttons
+******************************************************************/
+
+// Make a button look and behave like a link
+.btn-link {
+  color: $link-color;
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    @include box-shadow(none);
+  }
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+/******************************************************************
+/* Button Sizes
+******************************************************************/
+
+.btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+  padding:5px 10px 6px;
+  font-size:14px;
+  line-height:18px;
+  border-radius:16px;
+  &:focus,
+  &:hover,
+  &:active {
+    padding:4px 9px 5px;
+  }
+}
+/**
+.btn-sm,
+.btn-xs {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+.btn-xs {
+  padding: 1px 5px;
+}
+*/
+
+.btn-menu {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+  padding:3px 10px 2px;
+  font-size:12px;
+  line-height:16px;
+  border-radius:11px;
+  font-weight: 500;
+  background-color:transparent;
+
+  &:focus,
+  &:hover,
+  &:active {
+    border-width:1px;
+    color:$GS12;
+    border-color: $GS13;
+    padding:3px 10px 2px;
+    background-color: $GS0;
+    background-color:transparent;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    border-color:$GS2;
+    color:$GS2;
+    background-color:transparent;
+  }
+}
+
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

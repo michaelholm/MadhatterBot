@@ -1,0 +1,718 @@
+//
+// Forms
+// --------------------------------------------------
+
+
+// Normalize non-controls
+//
+// Restyle and baseline non-control form elements.
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: $line-height-computed;
+  font-size: ($font-size-base * 1.5);
+  line-height: inherit;
+  color: $legend-color;
+  border: 0;
+  border-bottom: 1px solid $legend-border-color;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+
+// Normalize form controls
+
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] {
+  @include box-sizing(border-box);
+}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9; /* IE8-9 */
+  line-height: normal;
+}
+
+// Set the height of select and file controls to match text inputs
+input[type="file"] {
+  display: block;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+// Fix optgroup Firefox bug per https://github.com/twbs/bootstrap/issues/7611
+select optgroup {
+  font-size: inherit;
+  font-style: inherit;
+  font-family: inherit;
+}
+
+// Focus for select, file, radio, and checkbox
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  @include tab-focus();
+}
+
+// Fix for Chrome number input
+// Setting certain font-sizes causes the `I` bar to appear on hover of the bottom increment button.
+// See https://github.com/twbs/bootstrap/issues/8350 for more.
+input[type="number"] {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    height: auto;
+  }
+}
+
+// Adjust output element
+output {
+  display: block;
+  padding-top: ($padding-base-vertical + 1);
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $input-color;
+  vertical-align: middle;
+}
+
+
+// Common form controls
+//
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: $padding-base-vertical $padding-base-horizontal;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $input-color;
+  vertical-align: middle;
+  background-color: $input-bg;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid $input-border;
+  border-radius: $input-border-radius;
+  @include box-shadow(inset 0 1px 1px $RGB0);
+  @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  @include form-control-focus();
+
+  // Placeholder
+  //
+  // Placeholder text gets special styles because when browsers invalidate entire
+  // lines if it doesn't understand a selector/
+  @include placeholder();
+
+  // Disabled and read-only inputs
+  // Note: HTML5 says that controls under a fieldset > legend:first-child won't
+  // be disabled if the fieldset is disabled. Due to implementation difficulty,
+  // we don't honor that edge case; we style them as disabled anyway.
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    background-color: $input-bg-disabled;
+  }
+
+  // [converter] extracted textarea& to textarea.form-control
+}
+
+// Reset height for `textarea`s
+textarea.form-control {
+  height: auto;
+}
+
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+
+// Checkboxes and radios
+//
+// Indent the labels to position radios/checkboxes as hanging controls.
+
+.radio,
+.checkbox {
+  display: block;
+  // min-height: $line-height-computed; // clear the floating input if there is no label text
+  // margin-top: 10px;
+  // margin-bottom: 10px;
+  // padding-left: 20px;
+  // vertical-align: middle;
+  label {
+    display: inline;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+  }
+}
+
+// Radios and checkboxes on same line
+.radio-inline,
+.checkbox-inline {
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  cursor: pointer;
+}
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 10px; // space out consecutive inline controls
+}
+
+// Apply same disabled cursor tweak as for inputs
+//
+// Note: Neither radios nor checkboxes can be readonly.
+input[type="radio"],
+input[type="checkbox"],
+.radio,
+.radio-inline,
+.checkbox,
+.checkbox-inline {
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+  }
+}
+
+// Form control sizing
+
+@include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+
+@include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+
+
+// Form control feedback states
+//
+// Apply contextual and semantic states to individual form controls.
+
+// Warning
+.has-warning {
+  @include form-control-validation($state-warning-text, $state-warning-text, $state-warning-bg);
+}
+// Error
+.has-error {
+  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+}
+// Success
+.has-success {
+  @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
+}
+
+
+// Static form control text
+//
+// Apply class to a `p` element to make any string of text align with labels in
+// a horizontal form layout.
+
+.form-control-static {
+  margin-bottom: 0; // Remove default margin from `p`
+}
+
+
+// Help text
+//
+// Apply to any element you wish to create light text for placement immediately
+// below a form control. Use for general help, formatting, or instructional text.
+
+.help-block {
+  display: block; // account for any element using help-block
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: lighten($text-color, 25%); // lighten the text some for contrast
+}
+
+
+
+// Inline forms
+//
+// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// forms begin stacked on extra small (mobile) devices and then go inline when
+// viewports reach <768px.
+//
+// Requires wrapping inputs and labels with `.form-group` for proper display of
+// default HTML form controls and our custom form controls (e.g., input groups).
+//
+// Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
+
+.form-inline {
+
+  // Kick in the inline
+  @media (min-width: $screen-sm) {
+    // Inline-block all the things for "inline"
+    .form-group  {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+
+    // In navbar-form, allow folks to *not* use `.form-group`
+    .form-control {
+      display: inline-block;
+    }
+
+    // Remove default margin on radios/checkboxes that were used for stacking, and
+    // then undo the floating of radios and checkboxes to match (which also avoids
+    // a bug in WebKit: https://github.com/twbs/bootstrap/issues/1969).
+    .radio,
+    .checkbox {
+      display: inline-block;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 0;
+    }
+    .radio input[type="radio"],
+    .checkbox input[type="checkbox"] {
+      float: none;
+      margin-left: 0;
+    }
+  }
+}
+
+
+// Horizontal forms
+//
+// Horizontal forms are built on grid classes and allow you to create forms with
+// labels on the left and inputs on the right.
+
+.form-horizontal {
+
+  // Consistent vertical alignment of labels, radios, and checkboxes
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: ($padding-base-vertical + 1); // Default padding plus a border
+  }
+
+  // Make form groups behave like rows
+  .form-group {
+    @include make-row();
+  }
+
+  .form-control-static {
+    padding-top: ($padding-base-vertical + 1);
+  }
+
+  // Only right align form labels here when the columns stop stacking
+  @media (min-width: $screen-sm-min) {
+    .control-label {
+      text-align: right;
+    }
+  }
+}
+
+// Morningstar custom styles begin below this line
+
+// Radio
+
+
+
+
+// Add active class to change to active icon state
+.radio {
+  @extend .icon;
+  padding:2px 0px 2px 20px;
+  margin: 7px 0;
+  cursor: pointer;
+  background-repeat:no-repeat;
+  input[type="radio"] {
+    display:none;
+  }
+  label {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    color: $text1;
+    position: relative;
+    top: -4px;
+    &:hover {
+      color: $text1;
+    }
+  }
+  @extend .ic-tggl-selectnone;
+  &.radio-unselected { @extend .ic-tggl-selectnone; }
+  
+  &.disabled,
+  &.radio-disabled {
+    cursor: default;
+    &:hover {
+      cursor: default;
+      color: $defaultUI;
+    }
+    label {
+      color:$text2;
+      cursor: default;
+    }
+  }
+
+  &.active,
+  &.active:hover,
+  &.radio-selected,
+  &.radio-selected:hover,
+  &.radio-selected:focus,
+  &.radio-selected:active {
+    @extend .ic-tggl-selectradio;
+    color: $State1 !important;
+    label {
+      color: $State1;
+    }
+  }
+  &.radio-selected-focus {
+    label {
+      color: $State1;
+    }
+  }
+}
+
+
+.single-text, .multiple-text {
+  outline:none;
+  border:0px;
+  border-bottom:1px solid $rule1;
+  display:inline-block;
+  padding-bottom:4px;
+  width:100%;
+  input[type="text"], textarea {
+    border:0px;
+    line-height:18px;
+    padding:4px 0px 2px 4px;
+    outline:none;
+    background-color: $input1;
+    display:block;
+    width:100%;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    border-bottom-color:$State1;
+    input[type="text"], textarea {
+      background-color: $input1;
+    }
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    border-bottom-color:$rule1;
+    input[type="text"], textarea {
+      background-color: $input2;
+      color: rgba($text2, 0.2);
+    }
+  }
+
+  &.text-error {
+    border-bottom-color:$PC1;
+    input[type="text"], textarea {
+      background-color: $input2;
+    }
+  }
+}
+
+.combo {
+  border:0px;
+  border-bottom:1px solid $GS3;
+  display:inline-block;
+  padding-bottom:4px;
+  .combo-row {
+    background-color: #ededed;
+    input[type="text"] {
+      border:0px;
+      line-height:18px;
+      padding:4px 0 2px 4px;
+      outline:none;
+      background-color: #ededed;
+      color:#131313;
+    }
+    .arrow {
+      display:inline-block;
+      width:20px;
+      height:17px;
+      background-repeat:no-repeat;
+      background-position:center center;
+      position:relative;
+      top:0;
+      right:0;
+      background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
+      vMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PS
+      IwcHgiIHk9IjBweCIKCSB3aWR0aD0iOXB4IiBoZWlnaHQ9IjlweCIgdmlld0JveD0iOSAxMC45O
+      TIgOSA5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDkgMTAuOTkyIDkgOSIgeG1sOnNwYWNlPSJw
+      cmVzZXJ2ZSI+CjxwYXRoIGZpbGw9IiM5OTk5OTkiIGQ9Ik0xNi44NTksMTAuOTkyIE05LDEwLjk
+      5Mmw0LjQ4NSw4LjQyNGw0LjQ4NS04LjQyNGgtMS4xMTFsLTMuMzc0LDYuMjk2bC0zLjMxMy02Lj
+      I5Nkg5eiIvPgo8L3N2Zz4=')
+    }
+  }
+
+  &:focus,
+  &:hover,
+  &:active,
+  &.active {
+    border-bottom-color:$MC3;
+    .combo-row {
+      background-color: #ededed;
+      input[type="text"] {
+        background-color: #ededed;
+        color:#131313;
+      }
+      .arrow {
+        cursor: pointer;
+        background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
+        vMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PS
+        IwcHgiIHk9IjBweCIKCSB3aWR0aD0iOXB4IiBoZWlnaHQ9IjlweCIgdmlld0JveD0iOSAxMC45O
+        TIgOSA5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDkgMTAuOTkyIDkgOSIgeG1sOnNwYWNlPSJw
+        cmVzZXJ2ZSI+CjxwYXRoIGZpbGw9IiMwMDAwMDAiIGQ9Ik0xNi44NTksMTAuOTkyIE05LDEwLjk
+        5Mmw0LjQ4NSw4LjQyNGw0LjQ4NS04LjQyNGgtMS4xMTFsLTMuMzc0LDYuMjk2bC0zLjMxMy02Lj
+        I5Nkg5eiIvPgo8L3N2Zz4=')
+      }
+    }
+  }
+
+  &.combo-disabled,
+  &[disabled] {
+    border-bottom-color:$GS2;
+    .combo-row {
+      background-color: $GS14;
+      input[type="text"] {
+        background-color: $GS14;
+        color:$GS2;
+      }
+      .arrow {
+        cursor: default;
+        background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
+        vMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PS
+        IwcHgiIHk9IjBweCIKCSB3aWR0aD0iOXB4IiBoZWlnaHQ9IjlweCIgdmlld0JveD0iOSAxMC45O
+        TIgOSA5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDkgMTAuOTkyIDkgOSIgeG1sOnNwYWNlPSJw
+        cmVzZXJ2ZSI+CjxwYXRoIGZpbGw9IiNkZGRkZGQiIGQ9Ik0xNi44NTksMTAuOTkyIE05LDEwLjk
+        5Mmw0LjQ4NSw4LjQyNGw0LjQ4NS04LjQyNGgtMS4xMTFsLTMuMzc0LDYuMjk2bC0zLjMxMy02Lj
+        I5Nkg5eiIvPgo8L3N2Zz4=')
+      }
+    }
+    &:focus,
+    &:active,
+    &:hover {
+      border-bottom-color:$GS2;
+      .combo-row {
+        background-color: $GS14;
+        input[type="text"] {
+          background-color: $GS14;
+          color:$GS2;
+        }
+        .arrow {
+          cursor: default;
+          background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
+          vMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PS
+          IwcHgiIHk9IjBweCIKCSB3aWR0aD0iOXB4IiBoZWlnaHQ9IjlweCIgdmlld0JveD0iOSAxMC45O
+          TIgOSA5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDkgMTAuOTkyIDkgOSIgeG1sOnNwYWNlPSJw
+          cmVzZXJ2ZSI+CjxwYXRoIGZpbGw9IiNkZGRkZGQiIGQ9Ik0xNi44NTksMTAuOTkyIE05LDEwLjk
+          5Mmw0LjQ4NSw4LjQyNGw0LjQ4NS04LjQyNGgtMS4xMTFsLTMuMzc0LDYuMjk2bC0zLjMxMy02Lj
+          I5Nkg5eiIvPgo8L3N2Zz4=')
+        }
+      }
+    }
+  }
+}
+
+// Switch
+
+.switch {
+  display:inline-block;
+  width:30px;
+  height:18px;
+  border:1px solid transparent;
+  border-radius:9px;
+  outline:none;
+  position:relative;
+  + .switchLabel {
+    font-size: 16px;
+    color: $text2;
+    padding-left: 31px;
+  }
+  .circle {
+  	position:absolute !important;
+    width:12px;
+    height:12px;
+    border-radius:6px;
+    border:1px solid transparent;
+    display:inline-block;
+    top:2px;
+    margin:0 2px;
+    background-color:transparent;
+  }
+}
+
+
+.switch-inactive {
+  border-color:$defaultUI;
+  .circle {
+    border-color:$defaultUI;
+  }
+}
+
+.switch-inactive:hover, 
+.switch-inactive-focused, 
+.switch-inactive-focused:hover {
+  border-color:$State1;
+  + .switchLabel {
+    color: $text1;
+  }
+  .circle {
+    border-color:$State1;
+  }
+}
+
+.switch-active {
+  border-color:$State1;
+  + .switchLabel {
+    color: $text1;
+  }
+  .circle {
+    background-color:$State1;
+    border-color:$State1;
+  }
+}
+.switch-active:focus,
+.switch-active:hover,
+.switch-active-focus,
+.switch-active-focus:hover {
+  + .switchLabel {
+    color: $text1;
+  }
+  .circle {
+    background-color:$system-tint1;
+    border-color:$system-tint1;
+  }
+}
+
+.switch-disabled, .switch-disabled:hover {
+  border-color:rgba($defaultUI,0.35);
+  .circle {
+    border-color:rgba($defaultUI,0.35);
+    background-color: transparent;
+  }
+}
+
+// Checkbox
+/**
+.checkbox {
+  display: block;
+  margin: 7px 0;
+  padding: 2px 0px 2px 20px;
+  cursor: pointer;
+  background-position: 2px center;
+  background-repeat:no-repeat;
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
+  vMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PS
+  IwcHgiIHk9IjBweCIKCSB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgM
+  TYgMTYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE2IDE2IiB4bWw6c3BhY2U9InByZXNl
+  cnZlIj4KPHBhdGggZmlsbD0iIzk5OTk5OQoiIGQ9Ik04LDBDMy41ODIsMCwwLDMuNTgyLDAsOHM
+  zLjU4Miw4LDgsOHM4LTMuNTgyLDgtOFMxMi40MTgsMCw4LDB6IE04LDE1LjA3OGMtMy45MDksMC
+  03LjA3OC0zLjE3LTcuMDc4LTcuMDc4CglTNC4wOTEsMC45MjIsOCwwLjkyMmMzLjkwOCwwLDcuM
+  Dc4LDMuMTcsNy4wNzgsNy4wNzhTMTEuOTA4LDE1LjA3OCw4LDE1LjA3OHoiLz4KPC9zdmc+');
+  input[type="checkbox"] {
+    display: none;
+  }
+  label {
+    color: $GS5;
+  }
+}
+
+.checkbox:hover {
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
+  vMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PS
+  IwcHgiIHk9IjBweCIKCSB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgM
+  TYgMTYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE2IDE2IiB4bWw6c3BhY2U9InByZXNl
+  cnZlIj4KPHBhdGggZmlsbD0iIzAwMDAwMAoiIGQ9Ik04LDBDMy41ODIsMCwwLDMuNTgyLDAsOHM
+  zLjU4Miw4LDgsOHM4LTMuNTgyLDgtOFMxMi40MTgsMCw4LDB6IE04LDE1LjA3OGMtMy45MDksMC
+  03LjA3OC0zLjE3LTcuMDc4LTcuMDc4CglTNC4wOTEsMC45MjIsOCwwLjkyMmMzLjkwOCwwLDcuM
+  Dc4LDMuMTcsNy4wNzgsNy4wNzhTMTEuOTA4LDE1LjA3OCw4LDE1LjA3OHoiLz4KPC9zdmc+');
+  label {
+    color: $GS13;
+  }
+}
+
+.checkbox-selected, .checkbox-selected:hover {
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
+  vMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PS
+  IwcHgiIHk9IjBweCIKCSB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgM
+  TYgMTYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE2IDE2IiB4bWw6c3BhY2U9InByZXNl
+  cnZlIj4KPHBhdGggZmlsbD0iIzAwYjhlZSIgZD0iTTE2LDhjMCw0LjQxOC0zLjU4Miw4LTgsOGw
+  wLDBjLTQuNDE4LDAtOC0zLjU4Mi04LThsMCwwYzAtNC40MTgsMy41ODItOCw4LThsMCwwQzEyLj
+  QxOCwwLDE2LDMuNTgyLDE2LDgKCUwxNiw4eiIvPgo8cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb
+  2ludHM9IjYuNTUsMTIuMjU4IDIuNjQ2LDguMzU0IDMuMzU0LDcuNjQ2IDYuNDUsMTAuNzQyIDEy
+  LjYwNCwyLjY5NiAxMy4zOTYsMy4zMDQgIi8+Cjwvc3ZnPg==');
+  label {
+    color: $MC3;
+  }
+}
+
+.checkbox-disabled, .checkbox-disabled:hover {
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
+  vMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PS
+  IwcHgiIHk9IjBweCIKCSB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgM
+  TYgMTYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE2IDE2IiB4bWw6c3BhY2U9InByZXNl
+  cnZlIj4KPHBhdGggZmlsbD0iI2RkZGRkZAoiIGQ9Ik04LDBDMy41ODIsMCwwLDMuNTgyLDAsOHM
+  zLjU4Miw4LDgsOHM4LTMuNTgyLDgtOFMxMi40MTgsMCw4LDB6IE04LDE1LjA3OGMtMy45MDksMC
+  03LjA3OC0zLjE3LTcuMDc4LTcuMDc4CglTNC4wOTEsMC45MjIsOCwwLjkyMmMzLjkwOCwwLDcuM
+  Dc4LDMuMTcsNy4wNzgsNy4wNzhTMTEuOTA4LDE1LjA3OCw4LDE1LjA3OHoiLz4KPC9zdmc+');
+  label {
+    color:$GS2;
+  }
+}
+
+.checkbox-inline {
+  display: inline-block;
+  padding-left: 20px;
+  margin: 0;
+}
+*/

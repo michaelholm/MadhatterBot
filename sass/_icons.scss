@@ -1,0 +1,117 @@
+//Load the generated icons file from webfont task
+@import "../icons/madhatter-icons";
+
+
+// Mixin for generating new styles
+@mixin icon-states($default: $defaultUI, $hover: $hoverUI, $active: $pressedIU, $disabled: $disableUI) {
+  color: $default;
+  &:hover { color: $hover; cursor: pointer; }
+  &:active,
+  &.active,
+  &.active:hover { color: $active; }
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:active,
+  &.disabled.active { color: $disabled; cursor: default; }
+  &.no-action,
+  &.no-action:hover { color: $default; cursor: default; }
+}
+
+
+
+/************************************************************************
+ *
+ * Base icon styline
+ *
+ ************************************************************************/
+.icon {
+  //Base size of icons, results in a 23px x 23px icon
+  font-size: 23px;
+
+  //Base icon colors based on default theme states
+  @include icon-states($defaultUI, $hoverUI, $pressedUI, $disableUI);
+
+  //Use static variable colors for icon states
+  &.color-static {
+    @include icon-states($StaticDefaultUI, $StaticHoverUI, $StaticPressedUI, $StaticDisableUI);
+  }
+
+  //Small version of icon, results in a 15px x 15px icon
+  &.ic-small {
+    font-size: 15px;
+  }
+
+}
+
+
+/************************************************************************
+ *
+ * Icon class specific styling
+ *
+ ************************************************************************/
+
+.ic-nav-modegrid {
+  font-size: 30px;
+  padding: 0 4px 5px 4px;
+  &:before {
+    bottom: -6px; //added to fix pos in ie, still off in osx chrome - BB
+  }
+}
+
+.ic-nav-modereport {
+  font-size: 28px;
+  padding: 0 5px 5px;
+  &:before {
+    bottom: -6px; //added to fix pos in ie, still off in osx chrome - BB
+  }
+}
+
+.ic-nav-modegrid, .ic-nav-modereport {
+  height: 31px;
+  width: 40px;
+  color: $GS5;
+  background: $GS8;
+  border: 1px solid $GS5;
+  border-radius: 3px;
+  position: relative; //added to fix pos in ie, still off in osx chrome - BB
+
+  &:before {
+    position: absolute; //added to fix pos in ie, still off in osx chrome - BB
+  }
+
+  &:hover {
+    border-color: $GS4;
+  }
+
+  &:active,
+  &.active,
+  &.active:hover {
+    color: $GS7;
+    background: $State1;
+    border-color: $State1;
+  }
+}
+
+
+.ic-ctxt-asterisk {
+  font-size: 7px;
+}
+
+/************************************************************************
+ *
+ * Helper classes to switch visual icons based on state
+ *
+ ************************************************************************/
+
+// Add active class to change to active icon state
+.checkbox {
+  @extend .icon;
+  @extend .ic-tggl-selectnone;
+  &.partial {
+    @extend .ic-tggl-selectpartial;
+  }
+  &.active, &.active:hover {
+    @extend .ic-tggl-selectcheckbox;
+    color: $State1;
+  }
+}

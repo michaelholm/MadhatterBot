@@ -1,0 +1,110 @@
+.scrollarea-wrapper {
+	//begin to style scrollbar
+	//restyle the scrollbar background in your project
+	// IE scrollbar
+	  scrollbar-3dlight-color: $defaultUI;
+	  scrollbar-highlight-color: $defaultUI;
+	  scrollbar-face-color: $defaultUI;
+	  scrollbar-track-color: $bg1;
+	  scrollbar-arrow-color: transparent;
+	  scrollbar-shadow-color: $defaultUI;
+	  scrollbar-darkshadow-color: $defaultUI;
+		
+	  // Chrome scrollbar
+	  ::-webkit-scrollbar {
+	    height: 15px;
+	    width: 15px;
+	    background: transparent;
+	  }
+	  ::-webkit-scrollbar-track {
+	    background: transparent;
+	  }
+	  ::-webkit-scrollbar-track-piece {
+	    background: transparent;
+	  }
+	  ::-webkit-scrollbar-thumb {
+	    background: $defaultUI;
+	  }
+	  ::-webkit-scrollbar-corner {
+	    background: transparent;
+	  }
+	  //end to style scrollbar
+		  
+		  
+  	position: relative;
+  	overflow: hidden;
+  	.fade-bar {
+  		position: absolute;
+  		display: none;
+  		&.fade-bar-h {
+  			height: 10px;
+  			left: 0;
+  			right: 15px;
+  			right: 18px \9\0;
+  			&.fade-bar-top {
+  				top: 0;
+			    @include linear-gradient(rgba($StaticBg1, 1), rgba($StaticBg1, 0)); //override this style class to define your background in your project.
+	  		}
+	  		&.fade-bar-bottom {
+				@include linear-gradient(rgba($StaticBg1, 0), rgba($StaticBg1, 1)); //override this style class to define your background in your project.
+	  		}
+  		}
+  		&.fade-bar-v {
+  			width: 10px;
+  			top: 0;
+  			bottom: 15px;
+  			bottom: 18px \9\0;
+  			&.fade-bar-right {
+	  			@include linear-gradient-horizontal(rgba($StaticBg1, 0), rgba($StaticBg1, 1)); //override this style class to define your background in your project.
+	  		}
+	  		&.fade-bar-left {
+	  			left: 0;
+	  			@include linear-gradient-horizontal(rgba($StaticBg1, 1), rgba($StaticBg1, 0)); //override this style class to define your background in your project.	  			
+	  		}
+  		}
+  	}
+  	&.scrollarea-wrapper-x {
+  		.fade-bar-right {
+  			right: 0px;
+  		}
+  	}
+  	&.scrollarea-wrapper-y {
+  		.fade-bar-bottom {
+  			bottom: 0px;
+  		}
+  	}
+  	&.scrollarea-wrapper-xy {
+  		.fade-bar-right {
+  			right: 15px;
+  			right: 18px \9\0;
+  		}
+  		.fade-bar-bottom {
+  			bottom: 15px;
+  			bottom: 18px \9\0;
+  		}
+  	}
+  	.scrollarea {  		
+  		position: absolute;
+  		top: 0;
+  		left: 0;
+  		right: 0;
+  		bottom: 0;
+  		overflow: hidden;
+  		.scroll-content {
+  		
+  		}
+  		
+  		&.scrollarea-x {
+  			overflow-x: auto;
+  			overflow-y: hidden;
+  		}
+  		&.scrollarea-y {
+  			overflow-y: auto;
+  			overflow-x: hidden;
+  		}
+  		&.scrollarea-xy {
+  			overflow-x: auto;
+  			overflow-y: auto;
+  		}
+  	}
+  }

@@ -1,0 +1,147 @@
+/**
+ *  carousel menu within popover
+ */
+ .popover {
+
+  .popover-container {
+    //width: 233px;
+    ul {
+      //margin: 0 16px 51px 16px;
+      padding: 0;
+      //width: 201px;
+
+      li {
+        position: inherit;
+        padding: 0;
+        font-size: 16px;
+        line-height: 18px;
+        list-style-type: none;
+        list-style: none;
+        border-bottom: 1px solid $GS3;
+        height: 32px;
+        overflow: hidden;
+        color: $GS12;
+        
+        &:hover, &.hovered {
+          cursor: pointer;
+          color: $MC3;
+        }
+        
+        &:active, &.active {
+        	border-bottom: 1px solid $MC3;
+      	    color: $MC3;
+        }
+        
+        &[disable], &[disable]:hover, &[disable].hovered {
+      	  border-bottom-color: $GS3;
+      	  color: $GS2;
+      	  cursor: default;
+	    }
+      }
+
+      // Links within the dropdown menu
+      > li > div {
+        display: inline-block;
+        text-decoration: none;
+        clear: both;
+        font-weight: normal;
+        line-height: $line-height-base;
+        //color: $dropdown-link-color;
+        width: 100%;
+        height: 17px;
+        margin: 7px 0 2px 0;
+        white-space: nowrap;
+      }
+
+    }
+
+    .carousel-popover-menu {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-title {
+      font-size: 14px;
+      color: $GS9;
+      font-family: inherit;
+      font-weight: bold;
+      //width: 201px;
+      border-bottom: 2px solid $GS7;
+      margin: 18px 0px 0px 0px;
+      //padding: 21px 0px 10px 0px;
+      cursor: pointer;
+      height: 20px;
+      
+      .popover-menu-title {
+        position: relative;
+        top: -4px;
+        
+        &.with-icon-left {
+        	padding-left:26px;
+        }
+      }
+    }
+    
+    .popover-menu-row {
+    	position:relative;
+    	.popover-menu-title {
+    		
+    	}
+    	.icon-slide_forward {
+	      position: absolute;
+	      right:0;
+	      top:4px;
+    	}
+    }
+
+
+    .icon-slide_back {
+      position: absolute;
+      top: -9px;
+      float:left;
+      margin-right: 5px;
+      padding: 4px 0 0 0;
+    }
+  }
+}
+
+#popoverMenuTrigger {
+  > div {
+    display: inline-block;
+  }
+  div.popoverMenuTriggerTitle {
+    float: left;
+    display: inline-block;
+  }
+}
+
+div.icon-List_dark {
+  float: left;
+  margin-left: 5px;
+  position: relative;
+  top: 6px;
+}
+
+#reportsPopoverMenuContent {
+  overflow: hidden;
+}
+
+.popover-menu {
+
+  .popover-submenu .popover-menu {
+    display: none;
+    position: absolute;
+    left: 230px;
+    top: 0;
+
+    ul {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+  .popover-submenu-title {
+    font-weight: bold;
+    border-bottom: 2px solid $GS13;
+    margin-bottom: 10px;
+  }

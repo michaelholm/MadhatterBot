@@ -1,0 +1,289 @@
+//
+// Message
+// --------------------------------------------------
+
+/* TODO: once we have shared icons, these need to be removed */
+.message-icon {
+  height: 23px;
+  width: 23px;
+}
+.message-icon-close, .message-icon-close:hover, .message-icon-close:active {
+  background-position: center center;
+}
+
+
+.message {
+  @include box-shadow(11px 11px 11px 11px rgba($GS12,0.35));
+  background-color: $GS0;
+  display: inline-block;
+  border-radius: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 19px;
+  padding-right: 19px;
+
+  z-index: $zindex-message+1;
+
+  .btn-message {
+    color: $StaticText1;
+    font-size: 16px;
+    padding: 6px 0 0px 0;
+    border: 0;
+  }
+  .message-underline {
+    border-bottom: 3px solid #17BAF2;
+    border-top: 1px solid $GS1;
+    clear: both;
+  }
+
+}
+
+.message-notification {
+  max-width: 678px;
+  .message-icon {
+    float: left;
+    margin: 10px 9px 11px 13px;
+  }
+
+  .message-content {
+    color: $StaticText1;
+    font-size: 16px;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    float: left;
+    margin: 14px 13px 11px 0;
+    line-height: 1;
+
+    a.link {
+    	border-color: $StaticLinkDefault;
+    	&:hover {
+    		border-color: $StaticLinkHover;
+    	}	
+    }
+  }
+
+  .message-close {
+    float: left;
+    padding-top:10px;
+    .notification-close {
+      border-top: 0;
+      border-right: 0;
+      border-bottom: 0;
+	    border-left: 1px solid;
+      border-left-color: $GS4;
+      padding-left: 15px;
+      height: 39px;
+      background-color: transparent;
+	  }
+	  
+	  .notification-undo {
+	  	padding-top: 7px;
+      padding-left: 7px;
+      padding-bottom: 7px;
+	  }
+  }
+}
+
+.message-warning-container {
+  width: 326px;
+}
+.message-warning {
+  padding: 12px 15px 13px 0;
+  .message-icon {
+    float: left;
+    margin: 0 9px 0 13px;
+  }
+  .message-content {
+    padding: 0 8px;
+    float: left;
+    max-width: 250px;
+  }
+  .btns-warning {
+    float: right;
+    margin-bottom: 13px;
+    clear: both;
+  }
+}
+
+.message-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $zindex-message;  
+  background-color:$bg3;
+}
+
+.message-inline {
+  font-size: 14px;
+  color: white;
+  border-radius: 2px;
+  background-color: $GS7;
+  display: inline-block;
+  .message-content {
+    max-width: 200px;
+    display: inline-block;
+    padding: 7px 8px 8px;
+  }
+}
+
+
+.message-prompt {
+  .message-close {
+    height: 31px;
+    width: 31px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    left: -3px;
+  }
+  .message-content {
+    border-right: 1px solid $GS5;
+  }
+}
+.message-error {
+  background-color: #FF2300;
+  max-width: 200px;
+
+}
+.message-tooltip {
+  max-width: 200px;
+  min-width: 100px;
+}
+
+.popover-message {
+  border-radius: 0px;
+}
+
+$arrow-gray: #666666;
+.arrow-up-gray {
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:10px solid $arrow-gray;
+  top:-10px !important;
+}
+.arrow-right-gray {
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+  border-left:10px solid $arrow-gray;
+  right:-10px !important;
+}
+.arrow-down-gray {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid $arrow-gray;
+  bottom:-10px !important;
+}
+.arrow-left-gray {
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+  border-right:10px solid $arrow-gray;
+  left:-10px !important;
+}
+.arrow-up-left-gray {
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid $arrow-gray;
+  top: -10px !important;
+}
+.arrow-up-right-gray {
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid $arrow-gray;
+  top: -10px !important
+}
+.arrow-down-right-gray {
+  border-right: 10px solid transparent;
+  border-top: 10px solid $arrow-gray;
+  bottom: -10px !important
+}
+.arrow-down-left-gray {
+  border-left: 10px solid transparent;
+  border-top: 10px solid $arrow-gray;
+  bottom: -10px !important
+}
+.arrow-left-top-gray {
+  border-top: 10px solid transparent;
+  border-left: 10px solid $arrow-gray;
+  left: -10px !important;
+}
+.arrow-left-bottom-gray {
+  border-top: 10px solid transparent;
+  border-right: 10px solid $arrow-gray;
+  left: -10px !important;
+}
+.arrow-right-top-gray {
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid $arrow-gray;
+  right: -10px !important;
+}
+.arrow-right-bottom-gray {
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid $arrow-gray;
+  right: -10px !important;
+}
+
+$arrow-red: #f00;
+.arrow-up-red {
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:10px solid $arrow-red;
+  top:-10px !important;
+}
+.arrow-right-red {
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+  border-left:10px solid $arrow-red;
+  right:-10px !important;
+}
+.arrow-down-red {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid $arrow-red;
+  bottom:-10px !important;
+}
+.arrow-left-red {
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+  border-right:10px solid $arrow-red;
+  left:-10px !important;
+}
+.arrow-up-left-red {
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid $arrow-red;
+  top: -10px !important;
+}
+.arrow-up-right-red {
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid $arrow-red;
+  top: -10px !important
+}
+.arrow-down-right-red {
+  border-right: 10px solid transparent;
+  border-top: 10px solid $arrow-red;
+  bottom: -10px !important
+}
+.arrow-down-left-red {
+  border-left: 10px solid transparent;
+  border-top: 10px solid $arrow-red;
+  bottom: -10px !important
+}
+.arrow-left-top-red {
+  border-top: 10px solid transparent;
+  border-left: 10px solid $arrow-red;
+  left: -10px !important;
+}
+.arrow-left-bottom-red {
+  border-top: 10px solid transparent;
+  border-right: 10px solid $arrow-red;
+  left: -10px !important;
+}
+.arrow-right-top-red {
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid $arrow-red;
+  right: -10px !important;
+}
+.arrow-right-bottom-red {
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid $arrow-red;
+  right: -10px !important;
+}

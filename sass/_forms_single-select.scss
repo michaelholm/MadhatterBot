@@ -1,0 +1,35 @@
+.btn-select {
+  background-color: $GS0;
+  border: none;
+  border-bottom: 1px solid $GS3;
+  border-radius: 0;
+  text-align: left;
+  line-height: 18px;
+  padding-left: 4px;
+  font-size: 14px;
+  color: #131313;
+
+  &:hover {
+    border-bottom: 1px solid $MC3;
+  }
+}
+  
+.btn-select .caret {
+  margin-left: 10px;
+  position: relative;
+}
+
+.dropdown-menu { 
+  border-radius: 0px;
+  opacity: 0.85;
+  box-shadow: 0 0.357em 0.971em 0.171em $RGB0;
+
+  border-bottom: 1px solid $MC3;
+  border-top: 1px solid $MC3;
+}
+
+.open .btn-default.dropdown-toggle {
+  color: $GS5;
+  background-color: $GS0;
+  border: none;
+}

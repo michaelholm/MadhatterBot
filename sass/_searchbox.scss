@@ -1,0 +1,119 @@
+
+.searchbox {
+  display: block;
+  height: 27px;
+  background-color: $input1;
+  border-radius: 13px;
+  line-height: 20px;
+  position: relative;
+  > .search-icon-small {
+    width: 18px;
+    height: 16px;
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+  }
+  > .search-input {
+    font-family: inherit;
+    outline: none;
+    border: 0;
+    color: $text1;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    font-size: 14px;
+    background-color: transparent;
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 28px;
+    width: calc(100% - 55px);
+  }
+  > .search-input::-webkit-input-placeholder {
+    color: $text3;
+  }
+  > .search-input:-moz-placeholder {
+    color: $text3;
+  }
+  > .search-input::-moz-placeholder {
+    color: $text3;
+  }
+  > .search-input:-ms-input-placeholder {
+    color: $text3;
+  }
+  > .search-input::-ms-clear {
+    display: none;
+  }
+  > .search-input:disabled {
+    background-color: transparent;
+  }
+  > .search-delete {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    width: 18px;
+    height: 14px;
+    cursor: pointer;
+  }
+  > .search-delete, .search-delete:hover, .search-delete:active {
+    background-position: 100% 1px;
+  }
+}
+.searchbox-dark {
+  background-color: #3c3c3c;
+  > .search-input::-webkit-input-placeholder {
+    color: $GS6
+  }
+  > .search-input:-moz-placeholder {
+      color: $GS6
+  }
+  > .search-input::-moz-placeholder {
+      color: $GS6
+  }
+  > .search-input:-ms-input-placeholder {
+      color: $GS6
+  }
+  > .search-input {
+    color: $GS2;
+    background-color: $GS10;
+  }
+  > .search-input:disabled {
+    background-color: $GS11;
+  }
+}
+
+.searchbox-medium {
+  background-color: $input1;
+  > .search-input::-webkit-input-placeholder {
+    color: $text3;
+  }
+  > .search-input:-moz-placeholder {
+      color: $text3;
+  }
+  > .search-input::-moz-placeholder {
+      color: $text3;
+  }
+  > .search-input:-ms-input-placeholder {
+      color: $text3;
+  }
+  > .search-input:disabled {
+    background-color: $input2;
+  }
+}
+
+
+.search-large {
+  border-radius: 16px;
+  height: 32px;
+  > .search-icon-small {
+    top: 9px;
+  }
+  > .search-input {
+    top: 6px;
+  }
+  > .search-delete {
+    top: 9px;
+  }
+}

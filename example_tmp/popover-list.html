@@ -1,0 +1,49 @@
+---
+layout: component
+title: Popover Example 1
+base_url: "../../"
+---
+
+<div class="bs-docs-section">
+  <div class="bs-example">
+
+    <div class="example-popover btn btn-primary">Show Popover</div>
+
+  </div>
+</div>
+
+<script>
+$(function () {
+  
+  //Create wrapper for content
+  var el = $("<div></div>");
+  //Create content
+  var html = '<div class="popover-medium">'+
+                '<div class="popover-title">Create</div>'+
+                '<div class="popover-list">'+
+                 '<div class="item" data-id="list">List</div>'+
+                 '<div class="item" data-id="search">Screen</div>'+
+               '</div>'+
+             '</div>';
+
+  el.addClass("popover-example-content");
+  el.append(html);
+
+  //Create object to pass into popover
+  var popObj = {
+    $el: el
+  };
+
+  //Set width and height of popover content
+  popObj.$el.width(200);
+  popObj.$el.height(400);
+  
+  //Show popover when you click the button
+  $(".example-popover").click(function () {
+    $.popover.show(popObj, {
+      $target: $(".example-popover")
+    });
+  });
+
+});
+</script>

@@ -1,0 +1,77 @@
+---
+layout: component
+title: Tooltip
+base_url: "../../"
+---
+
+<style type="text/css">
+  .mh-input-result {
+    width: 400px;
+  }
+
+  .ir-results {
+    max-height: 300px;
+    min-height: 100px;
+    overflow: auto;
+  }
+
+  li { color: white; }
+</style>
+
+
+<div class="bs-docs-section">
+  <div class="bs-example">
+
+    <div class="mh-input-result input-result-example"></div>
+
+  </div>
+</div>
+
+<script>
+$(function () {
+  
+  $(".input-result-example").inputAndResult({
+    placeholder: "Your Custom Text Here",
+    inputFocus: function(e){
+      var $ul = $('<ul class="input-results" />');
+      var self = this;
+
+      self.toggleContent("open")
+      self.updateResults($ul);
+      
+      $("body").one('click', function(){
+        self.toggleContent("close");
+        self.emptyResults()
+      });
+
+      this.$element.on('click', function(e){
+        e.stopPropagation();
+      })
+
+    },
+    inputKeyup: function(e){
+      if($(".input-results") !== "undefined"){ 
+        $(".input-results").append("<li>Key: "+e.keyCode+" - Shift: "+e.shiftKey+" - Crtl: "+e.ctrlKey+" - Alt: "+e.altKey+"</li>");
+      }
+    },
+    inputBlur: function(e){
+      //this.toggleContent();
+      
+    },
+    resultClick: function(e){
+      //console.log("result click",e)
+    },
+    resultMouseover: function(e){
+      //console.log("result mouseover",e)
+    },
+    resultMouseout: function(e){
+
+    }
+  });
+
+  $(".input-result-example").on("focus.mh.inputresult", function(){
+    console.log("focused");
+  })
+
+});
+</script>

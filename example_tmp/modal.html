@@ -1,0 +1,47 @@
+---
+layout: component
+title: Modal
+base_url: "../../"
+---
+
+<!-- Modal ================================================== -->
+<div class="bs-docs-section">
+  <div class="bs-example bs-example-modal">
+
+    <button class="btn btn-primary js-show-modal">Show Modal</button>  
+  
+  </div>
+</div>
+
+
+<!-- Modal content must be in the dom before calling the modal plugin -->
+<!-- Class of modal sets content to display:none to later be displayed by JS -->
+<div id="example-content" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div type="button" class="close icon-close" data-dismiss="modal" aria-hidden="true"></div>
+        <h4 class="modal-title">Modal Title</h4>
+      </div>
+      <div class="modal-body">
+        <p>Modal Body Content</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script>
+$(function () {
+  
+  //Show modal when you click the button
+  $(".js-show-modal").click(function () {
+    $("#example-content").modal();
+  });
+
+});
+</script>

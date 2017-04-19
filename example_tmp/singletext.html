@@ -1,0 +1,31 @@
+---
+layout: component
+title: Single Text
+base_url: "../../"
+---
+
+  <!-- Single Text
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="bs-example">
+      <!-- These are the static html elements you can use to show disabled, active and inactive text boxes. This is just for illustration. -->
+      <div class="single-text" data-disabled="false" data-placeholder="Default">
+        <input type="text"></input>
+      </div>
+      <p></p>
+      <div class="single-text" data-error="true" data-placeholder="Error">
+        <input type="text"></input>
+      </div>
+      <p></p>
+      <!-- The preferred way to manage these text boxes is to use javascript to set the properties based on business logic. This will set the appropriate classes on the text boxes. -->
+      <div id="single-text-demo" class="single-text"></div>
+      <script type="text/javascript">
+        $(function(){
+          $('#single-text-demo').singleText({
+            disabled: true,
+            placeholder: "Disabled"
+          });
+        });
+      </script>
+    </div>
+  </div>

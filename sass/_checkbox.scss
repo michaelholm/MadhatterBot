@@ -1,0 +1,73 @@
+.checkbox {
+	input[type="checkbox"] {
+		display: none;
+	}
+	label { color: $GS5; }
+	
+	//extend with the base icon css, should cover most states
+	@extend .icon;
+	
+	//extend with empty state of checbox
+	@extend .ic-tggl-selectnone;
+
+  &.checkbox-inline {
+  	display: inline-block;
+  	padding-left: 20px;
+  	margin: 0;
+	}
+
+	&.disabled {
+		label {
+		    color:$GS2;
+		  }
+		cursor:default;
+
+		&.partial {
+			@extend .ic-tggl-selectpartial;
+		}
+
+		&.selected, 
+		&.selected:hover,
+		&.selected:active {
+			@extend .ic-tggl-selectcheckbox;
+		}
+	}
+
+	&.partial {
+		@extend .ic-tggl-selectpartial;
+	}
+
+	&.selected, 
+	&.selected:hover,
+	&.selected:active {
+		label {
+	    color: $GS2;
+	    font-weight: 400;
+	  }
+		@extend .ic-tggl-selectcheckbox;
+
+		&:focus {
+		  label {
+		    color: $MC5;
+		  }
+		}
+
+		// &.disabled {
+		// 	//put an image here for selected and disabled
+		// 	//this is temporarily
+		// 	label {
+		// 	    color:$GS2;
+		// 	  }
+			
+		// 	&:hover,
+		// 	&:active,
+		// 	&:focus {
+		// 		//put an image here for selected and disabled and hover
+		// 		//this is temporarily
+		// 		label {
+		// 		    color:$GS2;
+		// 		  }
+		// 	}
+		// }
+	}
+}

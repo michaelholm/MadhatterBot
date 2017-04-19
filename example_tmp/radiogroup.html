@@ -1,0 +1,45 @@
+---
+layout: component
+title: Radio Group
+base_url: "../../"
+---
+
+<!-- Radio Button
+================================================== -->
+
+<div class="bs-docs-section">
+  <div class="bs-example">
+
+    <div id="js-radio-group-example" class="radio-group">
+      <div class="radio radio-selected">
+        <input type="radio" name="radioCategory">
+        <label>
+          Foo
+        </label>
+      </div>
+      <div class="radio radio-unselected">
+        <input type="radio" name="radioCategory">
+        <label>
+          bar
+        </label>
+      </div>
+      <div class="radio radio-unselected">
+        <input type="radio" name="radioCategory">
+        <label>
+          baz
+        </label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  $(function () {
+    $('#js-radio-group-example').radioGroup({
+      radioChange: function(el) {
+        //callback here
+      }
+    });
+  });
+</script>

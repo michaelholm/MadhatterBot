@@ -1,0 +1,40 @@
+.paginator {
+	border: 1px solid $defaultUI;
+	border-radius: 16px;
+	height: 24px;
+	display: table;
+	> .paginator-item,
+	.paginator-count {
+		display: table-cell;
+		text-align: center;
+		> span {
+			cursor: pointer;
+			display: inline-block;
+		}
+		> span.disabled {
+			cursor: default;
+		}
+	}
+	.paginator-item,
+	.paginator-item span,
+	.paginator-count {
+		vertical-align: middle
+	}
+	.paginator-start {
+		margin-left: 10px;
+	}
+	.paginator-end {
+		margin-right: 10px;
+	}
+	.paginator-next {
+		margin-left: 8px;
+	}
+	.paginator-back {
+		margin-right: 8px;
+	}
+	.paginator-count {
+		font-size: 16px;
+		text-align: center;
+		color: $defaultUI;
+	}
+}

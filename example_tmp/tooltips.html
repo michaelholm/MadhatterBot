@@ -1,0 +1,73 @@
+---
+layout: component
+title: Tooltip
+base_url: "../../"
+---
+
+<style type="text/css">
+  .events-example {
+    color: red;
+    margin: 20px 0 0 11px;
+  }
+</style>
+
+
+<div class="bs-docs-section">
+  <div class="bs-example">
+
+    <button class="btn btn-secondary example-1">Hover to see tooltip</button>
+
+    <button class="btn btn-secondary example-2">Top Right</button>
+    
+    <button class="btn btn-secondary example-3">Bottom Right</button>
+    
+    <button class="btn btn-secondary example-4">Bottom Left</button>
+    
+    <button class="btn btn-secondary example-5-events">Events</button>
+
+    <div class="events-example">Interact with the events button to change me.</div>
+
+  </div>
+</div>
+
+<script>
+$(function () {
+  $('.example-1').tooltip({
+    title: "Here's the tooltip",
+    animation: true
+  });
+
+  $('.example-2').tooltip({
+    title: "I'm top right",
+    animation: true,
+    placement: "top-right"
+  });
+
+  $('.example-3').tooltip({
+    title: "I'm bottom right",
+    animation: true,
+    placement: "bottom-right"
+  });
+
+  $('.example-4').tooltip({
+    title: "I'm bottom left",
+    animation: true,
+    placement: "bottom-left"
+  });
+
+  $('.example-5-events').tooltip({
+    title: "I'm bottom left",
+    animation: true,
+    placement: "bottom-left"
+  });
+
+  $('.example-5-events').on('shown.bs.tooltip', function(){
+    $(".events-example").html("Shown event triggered, this happens after animation");
+  });
+
+  $('.example-5-events').on('hidden.bs.tooltip', function(){
+    $(".events-example").html("hidden event triggered, this happens after animation");
+  });
+
+});
+</script>

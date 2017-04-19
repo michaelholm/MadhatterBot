@@ -1,0 +1,45 @@
+---
+layout: component
+title: Select Dropdown Demo 2
+base_url: "../../"
+---
+
+  <!-- Select Dropdown
+  ================================================== -->
+
+  <style type="text/css">  
+  
+  #select-demo-2.dd-container {
+    width: 440px;
+  }
+
+  #select-demo-2 .dd-options-container {
+    max-height: 400px;
+  }
+
+  </style>
+
+  <div class="bs-docs-section">
+    <div class="bs-example">
+      
+      <select id="select-demo-2"></select>
+
+      <script type="text/javascript">
+        $(function(){
+          $('#select-demo-2').ddslick({
+            data:[
+              {text:"Facebook", value:"0", selected: false},
+              {text:"Twitter", value:"1", selected: false},
+              {text:"LinkedIn", value:"2", selected: false},
+              {text:"Foursquare", value:"3", selected: false},
+              {text:"Instagram", value:"4", selected: false},
+              {text:"Pinterest", value:"5", selected: false}
+            ],
+            onSelected: function(data){
+              // callback function to be invoked when you select an option
+            }
+          });
+        });
+      </script>
+    </div>
+  </div>

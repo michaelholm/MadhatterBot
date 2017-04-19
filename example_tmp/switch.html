@@ -1,0 +1,47 @@
+---
+layout: component
+title: Switch
+base_url: "../../"
+---
+
+  <style type="text/css">
+    .switchLabel {
+      margin: 0 0 0 3px;
+      vertical-align: top;
+    }
+  </style>
+
+  <!-- Switch
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="bs-example">
+
+      <!-- The preferred way to manage these switches is to use javascript to set the properties based on business logic. This will set the appropriate classes on the switch. -->
+      <div id="switch-demo" class="switch" data-type="switch"></div>
+      <span class="switchLabel">false</span>
+
+      
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+  $(function(){
+
+    $('#switch-demo').switch({
+      active: false,
+      disabled: false,
+      optionChanged: function(ui){
+        if (ui && ui.options && ui.options.active) {
+        } else {
+          ui = {
+            options: { active: false }
+          }
+        }
+        $(".switchLabel").html(ui.options.active + "")
+      }
+    });
+
+  });
+</script>

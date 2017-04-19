@@ -1,0 +1,25 @@
+---
+layout: component
+title: Checkbox
+base_url: "../../"
+---
+
+  <!-- Checkbox
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="bs-example">
+      <!-- These are the static html elements you can use to show disabled, active and inactive checkboxes. This is just for illustration. -->
+      <div class="checkbox" data-selected="true" data-disabled="false">Selected/Unselected</div>
+      
+      <!-- The preferred way to manage these checkboxes is to use javascript to set the properties based on business logic. This will set the appropriate classes on the checkbox. -->
+      <div id="checkbox-demo" class="checkbox">Disabled</div>
+      <script type="text/javascript">
+        $(function(){
+          $('#checkbox-demo').checkbox({
+            selected: false,
+            disabled: true
+          });
+        });
+      </script>
+    </div>
+  </div>

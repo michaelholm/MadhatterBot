@@ -1,0 +1,30 @@
+---
+layout: component
+title: flyover
+base_url: "../../"
+---
+
+<a id="open" href="#">Show</a>
+<a id="close" href="#">Hide</a>
+<a id="destroy" href="#">Destroy</a>
+
+<script>
+ $(document).ready(function(){
+	 $("body").flyover({
+		 width: 400,
+		 height: 400
+	 });
+    $("#open").on("click", function(e){
+      e.stopPropagation();
+      $("body").flyover("show");
+    })
+    $("#close").on("click", function(e){
+      e.stopPropagation();
+      $("body").flyover("hide");
+    })
+    $("#destroy").on("click", function(e){
+      e.stopPropagation();
+      $("body").flyover("destroy");
+    })
+ });
+</script>

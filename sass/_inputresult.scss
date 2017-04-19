@@ -1,0 +1,43 @@
+.mh-input-result {
+  position: relative;
+  font-size: 16px;
+
+  .ir-input {
+    border:0px;
+    line-height:18px;
+    padding:4px 0 2px 4px;
+    outline:none;
+    width: 100%;
+    background: $input1;
+    color: $text1;
+  }
+  .ir-divider {
+    border-bottom: 1px solid $rule2;
+    padding-bottom: 4px;
+  }
+  .ir-results{
+    position: absolute;
+    display: none;
+    background: $BgUI;
+    width: 100%;
+    z-index: $zindex-dropdown;
+  }
+
+  &:focus,
+  &:active,
+  &.active {
+    .ir-divider {
+      border-bottom-color: $State1;
+    }
+    .ir-input {
+      color: $text1;
+    }
+  }
+
+  &.active {
+    .ir-results{
+      display: block;
+    }
+  }
+
+}//end .mh-input-result

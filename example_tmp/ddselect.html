@@ -1,0 +1,1444 @@
+---
+layout: component
+title: Select Dropdown
+base_url: "../../"
+---
+
+  <!-- Select Dropdown
+  ================================================== -->
+<style>
+	html, body {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+</style>
+<div id="dd-demo" style="width: 20%;">
+	<div class="dd"></div>
+</div>
+<div class="result"></div>
+<div id="dd-demo2" style="width: 30%; position: absolute; bottom: 50px;left: 300px">
+	<div class="dd"></div>
+</div>
+<div id="dd-demo3" style="width: 30%; position: absolute; left: 500px">
+	<div class="dd"></div>
+</div>
+  
+<script type="text/javascript">
+(function () {
+	$('body').css('background-color', '#151515');
+})();
+var data = [
+            {
+              "id": "CU$$$$$AFG",
+              "categoryId": "Countries",
+              "text": "Afghanistan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ALA",
+              "categoryId": "Countries",
+              "text": "Aland Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ALB",
+              "categoryId": "Countries",
+              "text": "Albania",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$DZA",
+              "categoryId": "Countries",
+              "text": "Algeria",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ASM",
+              "categoryId": "Countries",
+              "text": "American Samoa",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$AND",
+              "categoryId": "Countries",
+              "text": "Andorra",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$AGO",
+              "categoryId": "Countries",
+              "text": "Angola",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$AIA",
+              "categoryId": "Countries",
+              "text": "Anguilla",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ATA",
+              "categoryId": "Countries",
+              "text": "Antarctica",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ATG",
+              "categoryId": "Countries",
+              "text": "Antigua and Barbuda",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ARG",
+              "categoryId": "Countries",
+              "text": "Argentina",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ARM",
+              "categoryId": "Countries",
+              "text": "Armenia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ABW",
+              "categoryId": "Countries",
+              "text": "Aruba",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$AUS",
+              "categoryId": "Countries",
+              "text": "Australia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$AUT",
+              "categoryId": "Countries",
+              "text": "Austria",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$AZE",
+              "categoryId": "Countries",
+              "text": "Azerbaijan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BHS",
+              "categoryId": "Countries",
+              "text": "Bahamas",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BHR",
+              "categoryId": "Countries",
+              "text": "Bahrain",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BGD",
+              "categoryId": "Countries",
+              "text": "Bangladesh",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BRB",
+              "categoryId": "Countries",
+              "text": "Barbados",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BLR",
+              "categoryId": "Countries",
+              "text": "Belarus",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BEL",
+              "categoryId": "Countries",
+              "text": "Belgium",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BLZ",
+              "categoryId": "Countries",
+              "text": "Belize",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BEN",
+              "categoryId": "Countries",
+              "text": "Benin",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BMU",
+              "categoryId": "Countries",
+              "text": "Bermuda",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BTN",
+              "categoryId": "Countries",
+              "text": "Bhutan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BOL",
+              "categoryId": "Countries",
+              "text": "Bolivia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BES",
+              "categoryId": "Countries",
+              "text": "Bonaire, Sint Eustatius and Saba",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BIH",
+              "categoryId": "Countries",
+              "text": "Bosnia & Herzegovina",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BWA",
+              "categoryId": "Countries",
+              "text": "Botswana",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BVT",
+              "categoryId": "Countries",
+              "text": "Bouvet Island",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BRA",
+              "categoryId": "Countries",
+              "text": "Brazil",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$IOT",
+              "categoryId": "Countries",
+              "text": "British Indian Ocean Territory",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$VGB",
+              "categoryId": "Countries",
+              "text": "British Virgin Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BRN",
+              "categoryId": "Countries",
+              "text": "Brunei Darussalam",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BGR",
+              "categoryId": "Countries",
+              "text": "Bulgaria",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BFA",
+              "categoryId": "Countries",
+              "text": "Burkina Faso",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$BDI",
+              "categoryId": "Countries",
+              "text": "Burundi",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$KHM",
+              "categoryId": "Countries",
+              "text": "Cambodia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CMR",
+              "categoryId": "Countries",
+              "text": "Cameroon",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CAN",
+              "categoryId": "Countries",
+              "text": "Canada",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CPV",
+              "categoryId": "Countries",
+              "text": "Cape Verde",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CYM",
+              "categoryId": "Countries",
+              "text": "Cayman Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CAF",
+              "categoryId": "Countries",
+              "text": "Central African Republic",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TCD",
+              "categoryId": "Countries",
+              "text": "Chad",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CHI",
+              "categoryId": "Countries",
+              "text": "Channel Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CHL",
+              "categoryId": "Countries",
+              "text": "Chile",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CHN",
+              "categoryId": "Countries",
+              "text": "China",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CXR",
+              "categoryId": "Countries",
+              "text": "Christmas Island",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CCK",
+              "categoryId": "Countries",
+              "text": "Cocos (Keeling) Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$COL",
+              "categoryId": "Countries",
+              "text": "Colombia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$COM",
+              "categoryId": "Countries",
+              "text": "Comoros",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$COG",
+              "categoryId": "Countries",
+              "text": "Congo",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$COD",
+              "categoryId": "Countries",
+              "text": "Congo, the Democratic Republic of the",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$COK",
+              "categoryId": "Countries",
+              "text": "Cook Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CRI",
+              "categoryId": "Countries",
+              "text": "Costa Rica",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CIV",
+              "categoryId": "Countries",
+              "text": "Cote d'Ivoire",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$HRV",
+              "categoryId": "Countries",
+              "text": "Croatia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CUB",
+              "categoryId": "Countries",
+              "text": "Cuba",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CUW",
+              "categoryId": "Countries",
+              "text": "Curaçao",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CYP",
+              "categoryId": "Countries",
+              "text": "Cyprus",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CZE",
+              "categoryId": "Countries",
+              "text": "Czech Republic",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$DNK",
+              "categoryId": "Countries",
+              "text": "Denmark",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$DJI",
+              "categoryId": "Countries",
+              "text": "Djibouti",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$DMA",
+              "categoryId": "Countries",
+              "text": "Dominica",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$DOM",
+              "categoryId": "Countries",
+              "text": "Dominican Republic",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TMP",
+              "categoryId": "Countries",
+              "text": "East Timor",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ECU",
+              "categoryId": "Countries",
+              "text": "Ecuador",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$EGY",
+              "categoryId": "Countries",
+              "text": "Egypt",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SLV",
+              "categoryId": "Countries",
+              "text": "El Salvador",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GNQ",
+              "categoryId": "Countries",
+              "text": "Equatorial Guinea",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ERI",
+              "categoryId": "Countries",
+              "text": "Eritrea",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$EST",
+              "categoryId": "Countries",
+              "text": "Estonia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ETH",
+              "categoryId": "Countries",
+              "text": "Ethiopia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$FLK",
+              "categoryId": "Countries",
+              "text": "Falkland Islands (Malvinas)",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$FRO",
+              "categoryId": "Countries",
+              "text": "Faroe Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$FJI",
+              "categoryId": "Countries",
+              "text": "Fiji",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$FIN",
+              "categoryId": "Countries",
+              "text": "Finland",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$FRA",
+              "categoryId": "Countries",
+              "text": "France",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$FXX",
+              "categoryId": "Countries",
+              "text": "France, Metropolitan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GUF",
+              "categoryId": "Countries",
+              "text": "French Guiana",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GAB",
+              "categoryId": "Countries",
+              "text": "Gabon",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GMB",
+              "categoryId": "Countries",
+              "text": "Gambia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GEO",
+              "categoryId": "Countries",
+              "text": "Georgia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$DEU",
+              "categoryId": "Countries",
+              "text": "Germany",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GHA",
+              "categoryId": "Countries",
+              "text": "Ghana",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GIB",
+              "categoryId": "Countries",
+              "text": "Gibraltar",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GRC",
+              "categoryId": "Countries",
+              "text": "Greece",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GRL",
+              "categoryId": "Countries",
+              "text": "Greenland",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GRD",
+              "categoryId": "Countries",
+              "text": "Grenada",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GUM",
+              "categoryId": "Countries",
+              "text": "Guam",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GTM",
+              "categoryId": "Countries",
+              "text": "Guatemala",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GGY",
+              "categoryId": "Countries",
+              "text": "Guernsey",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GIN",
+              "categoryId": "Countries",
+              "text": "Guinea",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GNB",
+              "categoryId": "Countries",
+              "text": "Guinea-Bissau",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GUY",
+              "categoryId": "Countries",
+              "text": "Guyana",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$HTI",
+              "categoryId": "Countries",
+              "text": "Haiti",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$VAT",
+              "categoryId": "Countries",
+              "text": "Holy See (Vatican City State)",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$HND",
+              "categoryId": "Countries",
+              "text": "Honduras",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$HKG",
+              "categoryId": "Countries",
+              "text": "Hong Kong",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$HUN",
+              "categoryId": "Countries",
+              "text": "Hungary",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ISL",
+              "categoryId": "Countries",
+              "text": "Iceland",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$IND",
+              "categoryId": "Countries",
+              "text": "India",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$IDN",
+              "categoryId": "Countries",
+              "text": "Indonesia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$IRN",
+              "categoryId": "Countries",
+              "text": "Iran, Islamic Republic of",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$IRQ",
+              "categoryId": "Countries",
+              "text": "Iraq",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$IRL",
+              "categoryId": "Countries",
+              "text": "Ireland",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$IMN",
+              "categoryId": "Countries",
+              "text": "Isle of Man",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ISR",
+              "categoryId": "Countries",
+              "text": "Israel",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ITA",
+              "categoryId": "Countries",
+              "text": "Italy",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$JAM",
+              "categoryId": "Countries",
+              "text": "Jamaica",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$JPN",
+              "categoryId": "Countries",
+              "text": "Japan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$JEY",
+              "categoryId": "Countries",
+              "text": "Jersey",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$JOR",
+              "categoryId": "Countries",
+              "text": "Jordan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$KAZ",
+              "categoryId": "Countries",
+              "text": "Kazakhstan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$KEN",
+              "categoryId": "Countries",
+              "text": "Kenya",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$KIR",
+              "categoryId": "Countries",
+              "text": "Kiribati",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$KWT",
+              "categoryId": "Countries",
+              "text": "Kuwait",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$KGZ",
+              "categoryId": "Countries",
+              "text": "Kyrgyzstan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LAO",
+              "categoryId": "Countries",
+              "text": "Laos",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LVA",
+              "categoryId": "Countries",
+              "text": "Latvia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LBN",
+              "categoryId": "Countries",
+              "text": "Lebanon",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LSO",
+              "categoryId": "Countries",
+              "text": "Lesotho",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LBR",
+              "categoryId": "Countries",
+              "text": "Liberia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LBY",
+              "categoryId": "Countries",
+              "text": "Libya",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LIE",
+              "categoryId": "Countries",
+              "text": "Liechtenstein",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LTU",
+              "categoryId": "Countries",
+              "text": "Lithuania",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LUX",
+              "categoryId": "Countries",
+              "text": "Luxembourg",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MAC",
+              "categoryId": "Countries",
+              "text": "Macau",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MKD",
+              "categoryId": "Countries",
+              "text": "Macedonia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MDG",
+              "categoryId": "Countries",
+              "text": "Madagascar",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MWI",
+              "categoryId": "Countries",
+              "text": "Malawi",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MYS",
+              "categoryId": "Countries",
+              "text": "Malaysia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MDV",
+              "categoryId": "Countries",
+              "text": "Maldives",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MLI",
+              "categoryId": "Countries",
+              "text": "Mali",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MLT",
+              "categoryId": "Countries",
+              "text": "Malta",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MHL",
+              "categoryId": "Countries",
+              "text": "Marshall Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MRT",
+              "categoryId": "Countries",
+              "text": "Mauritania",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MUS",
+              "categoryId": "Countries",
+              "text": "Mauritius",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MEX",
+              "categoryId": "Countries",
+              "text": "Mexico",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$FSM",
+              "categoryId": "Countries",
+              "text": "Micronesia, Federated States of",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MDA",
+              "categoryId": "Countries",
+              "text": "Moldova, Republic of",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MCO",
+              "categoryId": "Countries",
+              "text": "Monaco",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MNG",
+              "categoryId": "Countries",
+              "text": "Mongolia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MNE",
+              "categoryId": "Countries",
+              "text": "Montenegro",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MAR",
+              "categoryId": "Countries",
+              "text": "Morocco",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MOZ",
+              "categoryId": "Countries",
+              "text": "Mozambique",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MMR",
+              "categoryId": "Countries",
+              "text": "Myanmar",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NAM",
+              "categoryId": "Countries",
+              "text": "Namibia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NPL",
+              "categoryId": "Countries",
+              "text": "Nepal",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NLD",
+              "categoryId": "Countries",
+              "text": "Netherlands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ANT",
+              "categoryId": "Countries",
+              "text": "Netherlands Antilles",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NCL",
+              "categoryId": "Countries",
+              "text": "New Caledonia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NZL",
+              "categoryId": "Countries",
+              "text": "New Zealand",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NIC",
+              "categoryId": "Countries",
+              "text": "Nicaragua",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NER",
+              "categoryId": "Countries",
+              "text": "Niger",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NGA",
+              "categoryId": "Countries",
+              "text": "Nigeria",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NIU",
+              "categoryId": "Countries",
+              "text": "Niue",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NFK",
+              "categoryId": "Countries",
+              "text": "Norfolk Island",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PRK",
+              "categoryId": "Countries",
+              "text": "North Korea",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$MNP",
+              "categoryId": "Countries",
+              "text": "Northern Mariana Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$NOR",
+              "categoryId": "Countries",
+              "text": "Norway",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$OMN",
+              "categoryId": "Countries",
+              "text": "Oman",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PAK",
+              "categoryId": "Countries",
+              "text": "Pakistan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PAN",
+              "categoryId": "Countries",
+              "text": "Panama",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PNG",
+              "categoryId": "Countries",
+              "text": "Papua New Guinea",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PRY",
+              "categoryId": "Countries",
+              "text": "Paraguay",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PER",
+              "categoryId": "Countries",
+              "text": "Peru",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PHL",
+              "categoryId": "Countries",
+              "text": "Philippines",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PCN",
+              "categoryId": "Countries",
+              "text": "Pitcairn",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$POL",
+              "categoryId": "Countries",
+              "text": "Poland",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PRT",
+              "categoryId": "Countries",
+              "text": "Portugal",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$PRI",
+              "categoryId": "Countries",
+              "text": "Puerto Rico",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$QAT",
+              "categoryId": "Countries",
+              "text": "Qatar",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ROU",
+              "categoryId": "Countries",
+              "text": "Romania",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$RUS",
+              "categoryId": "Countries",
+              "text": "Russia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$RWA",
+              "categoryId": "Countries",
+              "text": "Rwanda",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$WSM",
+              "categoryId": "Countries",
+              "text": "Samoa",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SMR",
+              "categoryId": "Countries",
+              "text": "San Marino",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$STP",
+              "categoryId": "Countries",
+              "text": "Sao Tome & Principe",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SAU",
+              "categoryId": "Countries",
+              "text": "Saudi Arabia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SEN",
+              "categoryId": "Countries",
+              "text": "Senegal",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SRB",
+              "categoryId": "Countries",
+              "text": "Serbia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SYC",
+              "categoryId": "Countries",
+              "text": "Seychelles",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SLE",
+              "categoryId": "Countries",
+              "text": "Sierra Leone",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SGP",
+              "categoryId": "Countries",
+              "text": "Singapore",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SXM",
+              "categoryId": "Countries",
+              "text": "Sint Maarten",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SVK",
+              "categoryId": "Countries",
+              "text": "Slovakia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SVN",
+              "categoryId": "Countries",
+              "text": "Slovenia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SLB",
+              "categoryId": "Countries",
+              "text": "Solomon Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SOM",
+              "categoryId": "Countries",
+              "text": "Somalia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ZAF",
+              "categoryId": "Countries",
+              "text": "South Africa",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SGS",
+              "categoryId": "Countries",
+              "text": "South Georgia and the South Sandwich Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$KOR",
+              "categoryId": "Countries",
+              "text": "South Korea",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ESP",
+              "categoryId": "Countries",
+              "text": "Spain",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LKA",
+              "categoryId": "Countries",
+              "text": "Sri Lanka",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$KNA",
+              "categoryId": "Countries",
+              "text": "St. Kitts & Nevis",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$LCA",
+              "categoryId": "Countries",
+              "text": "St. Lucia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$VCT",
+              "categoryId": "Countries",
+              "text": "St. Vincent & the Grenadines",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SDN",
+              "categoryId": "Countries",
+              "text": "Sudan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SUR",
+              "categoryId": "Countries",
+              "text": "Suriname",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SWZ",
+              "categoryId": "Countries",
+              "text": "Swaziland",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SWE",
+              "categoryId": "Countries",
+              "text": "Sweden",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$CHE",
+              "categoryId": "Countries",
+              "text": "Switzerland",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$SYR",
+              "categoryId": "Countries",
+              "text": "Syria",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TWN",
+              "categoryId": "Countries",
+              "text": "Taiwan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TJK",
+              "categoryId": "Countries",
+              "text": "Tajikistan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TZA",
+              "categoryId": "Countries",
+              "text": "Tanzania",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$THA",
+              "categoryId": "Countries",
+              "text": "Thailand",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TLS",
+              "categoryId": "Countries",
+              "text": "Timor-Leste",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TGO",
+              "categoryId": "Countries",
+              "text": "Togo",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TON",
+              "categoryId": "Countries",
+              "text": "Tonga",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TTO",
+              "categoryId": "Countries",
+              "text": "Trinidad & Tobago",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TUN",
+              "categoryId": "Countries",
+              "text": "Tunisia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TUR",
+              "categoryId": "Countries",
+              "text": "Turkey",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TKM",
+              "categoryId": "Countries",
+              "text": "Turkmenistan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$TCA",
+              "categoryId": "Countries",
+              "text": "Turks and Caicos Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$VIR",
+              "categoryId": "Countries",
+              "text": "US Virgin Islands",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$UGA",
+              "categoryId": "Countries",
+              "text": "Uganda",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$UKR",
+              "categoryId": "Countries",
+              "text": "Ukraine",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ARE",
+              "categoryId": "Countries",
+              "text": "United Arab Emirates",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$GBR",
+              "categoryId": "Countries",
+              "text": "United Kingdom",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$USA",
+              "categoryId": "Countries",
+              "text": "United States",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$URY",
+              "categoryId": "Countries",
+              "text": "Uruguay",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$UZB",
+              "categoryId": "Countries",
+              "text": "Uzbekistan",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$VUT",
+              "categoryId": "Countries",
+              "text": "Vanuatu",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$VEN",
+              "categoryId": "Countries",
+              "text": "Venezuela",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$VNM",
+              "categoryId": "Countries",
+              "text": "Vietnam",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$YEM",
+              "categoryId": "Countries",
+              "text": "Yemen",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ZMB",
+              "categoryId": "Countries",
+              "text": "Zambia",
+              "selected": false
+          },
+          {
+              "id": "CU$$$$$ZWE",
+              "categoryId": "Countries",
+              "text": "Zimbabwe",
+              "selected": false
+          }
+      ];
+$(function(){
+  $('#dd-demo').find(".dd").ddselect({
+  	currentValue: {
+      "id": "CU$$$$$ZWE",
+      "categoryId": "Countries",
+      "text": "Zimbabwe",
+      "selected": false
+  	},
+  	data: data,
+  	onselect: function (item) {
+  		$('.result').html(JSON.stringify(item));
+  	}
+  });
+  $('#dd-demo2').find(".dd").ddselect({
+  	nullAllowed: true,
+  	data: data
+  });
+  $('#dd-demo3').find(".dd").ddselect({
+  	nullAllowed: true,
+  	data: data,
+  	disabled: true
+  });
+  //$('#dd-demo3').find(".dd").ddselect("activate");
+  //$('#dd-demo3').find(".dd").ddselect("disable");
+});
+</script>

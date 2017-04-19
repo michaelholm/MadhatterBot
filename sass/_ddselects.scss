@@ -1,0 +1,186 @@
+.dd-select {
+	display: inline-block;
+	cursor: default;
+	font-size: 16px;
+	height: 30px;
+	width: 100%;
+
+	.dd-head {
+	  width: 100%;
+		display: inline-block;
+		margin-top: 2px;
+		padding-top: 4px;
+		padding-bottom: 3px;
+		padding-left: 6px;
+		padding-right: 22px;
+		position: relative;
+		input {
+			width: 100%;
+			display: inline-block;
+			padding: 5px 15px 4px 0;
+			height: 26px;
+			line-height: 24px;
+			font-size: 16px;
+			padding-left: 3px;
+			outline: none;
+			border: 0;
+			line-height: 15px;
+			box-sizing: border-box !important;//100% with will include border and padding.
+		}
+		.icon {
+			vertical-align: middle;
+			margin-top: 6px;
+		}
+		.icon-wrapper {
+			position: absolute;
+			right: 0px;			
+			top: 2px;	
+			display: inline-block;
+			height: 26px;
+			width: 16px;
+		}
+	}
+	&.disabled {
+		opacity: 0.35;
+	}
+	
+	.dd-options {
+		display: none;
+		position: absolute;
+		z-index: 10000;
+		overflow-x: hidden;
+		overflow-y: auto;	
+		box-shadow: 0px 5px 13px 2px rgba(0, 0, 0, 0.4);		
+		.dd-option {
+			display: none;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			margin: 0 5px;
+			padding-top: 3px;
+			padding-bottom: 4px;
+			height: 32px;//no idea why this includes the padding
+			&.shown {
+				display: block;
+				&:first-child {
+					margin-top: 0px;
+				}
+				&:last-child {
+					margin-bottom: 0px;
+				}
+				
+				.outer {
+					opacity: 0.7;
+				}
+			}
+		}
+		.no-results {
+			position: absolute;
+			padding-left: 3px;
+			padding-top: 3px;
+			padding-bottom: 4px;
+			height: 32px;//no idea why this includes the padding
+		}
+	}	
+	
+	&.skin-standard {
+
+			border-bottom: 1px solid;
+			border-bottom-color: $rule2;
+
+			&:hover,
+			&:focus,
+			&:active,
+			&.active {
+				border-bottom-color: $State1;
+				.icon {
+					color: $State1;
+				}
+			}
+
+		.dd-head {
+			input {				
+				font-weight: 400;
+				background-color: transparent;	
+				color: $text1;	
+				&.placeholder {
+					color: $labelDetail;
+				}
+				&.valued {
+
+				}
+			}
+			.icon {
+				background-color: transparent;		
+			}
+			.icon-wrapper {
+				background-color: transparent;		
+			}
+		}
+		.dd-options {
+			background-color: $BgUI;
+			.dd-option {
+				font-weight: 400;
+				color: $text1;
+				&.selected {
+					color: $text2;
+				}
+				&.option-highlight {
+					color: $State1 !important;//hight has more priority than selected.
+				}
+				
+				b {
+					font-weight: 500;
+				}
+			}
+			.no-results {
+				font-weight: 400;
+				color: $text1;
+			}
+		}
+	}
+	
+	&.skin-static-white {
+		.dd-head {	
+			border-bottom: 1px solid $StaticRule2;
+			input {				
+				font-weight: 400;		
+				background-color: $StaticInput1;	
+				color: $StaticText1;	
+				&.placeholder {
+					color: $StaticText4;
+				}
+				&.valued {
+
+				}
+			}
+			.icon {
+				background-color: transparent;		
+			}
+			.icon-wrapper {
+				background-color: $StaticInput1;		
+			}
+		}
+		.dd-options {
+			background-color: $StaticBgUI;
+			.dd-option {
+				font-weight: 400;
+				color: $StaticText1;
+				&.selected {
+					color: $StaticText4;
+				}
+				&.option-highlight {
+					color: $State1 !important;//hight has more priority than selected.
+				}
+				
+				b {
+					font-weight: 500;
+				}
+			}
+			.no-results {
+				font-weight: 400;
+				color: $StaticText1;
+			}
+		}
+	}
+}

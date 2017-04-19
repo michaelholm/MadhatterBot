@@ -1,0 +1,118 @@
+#report-flyover{
+    z-index:99999;
+    top:92px;
+    position:absolute;
+    background-color: #fdfdfd;//hardcode as required.
+    display: none;
+    -webkit-box-shadow: -5px 0px 5px -3px rgba(0, 0, 0, 0.2);//hardcode the color for now as Justin's requirement.
+    -moz-box-shadow: -5px 0px 5px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: -5px 0px 5px -3px rgba(0, 0, 0, 0.2);
+    #report-flyover-hdr{
+    	position:relative;
+    	height: 47px;
+    	padding: 17px 0px 13px 0px;
+    	margin: 0 10px;
+    	border-bottom: 2px solid $StaticRule1;
+    	.ic-remove{
+    		position:absolute;
+    		top: 17px;
+    		right:0px;
+    	}
+
+    	.title{
+    	    color: $StaticText1;
+    		.ic-list{
+    			float: left;
+                margin-top: 3px;
+                margin-right: 0px;
+    		}
+    		span{
+    			float:right;
+                font-size: 21px;
+                font-weight: 300;
+                line-height: 28px;//this value can make the title stay middle of vertical-align
+    		}
+    		position: absolute;
+  			left: 0px;
+            top: 10px;
+    	}
+    }
+    iframe{
+    	position: absolute;
+    	top: 49px;
+    	width: 100%;
+    	height: calc(100% - 54px);//plus 5px space to the bottom
+    	border: none;
+    }
+  }
+
+  .ui-resizable {
+    position: relative;
+}
+.ui-resizable-handle {
+    position: absolute;
+    font-size: 0.1px;
+    display: block;
+    -ms-touch-action: none;
+    touch-action: none;
+}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle {
+    display: none;
+}
+.ui-resizable-n {
+    cursor: n-resize;
+    height: 7px;
+    width: 100%;
+    top: -5px;
+    left: 0;
+}
+.ui-resizable-s {
+    cursor: s-resize;
+    height: 7px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+}
+.ui-resizable-e {
+    cursor: e-resize;
+    width: 7px;
+    right: -5px;
+    top: 0;
+    height: 100%;
+}
+.ui-resizable-w {
+    cursor: w-resize;
+    width: 12px;
+    left: -5px;
+    top: 0;
+    height: 100%;
+}
+.ui-resizable-se {
+    cursor: se-resize;
+    width: 12px;
+    height: 12px;
+    right: 1px;
+    bottom: 1px;
+}
+.ui-resizable-sw {
+    cursor: sw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    bottom: -5px;
+}
+.ui-resizable-nw {
+    cursor: nw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    top: -5px;
+}
+.ui-resizable-ne {
+    cursor: ne-resize;
+    width: 9px;
+    height: 9px;
+    right: -5px;
+    top: -5px;
+}

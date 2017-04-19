@@ -1,0 +1,50 @@
+---
+layout: component
+title: Popover
+base_url: "../../"
+---
+  
+
+  <style type="text/css">
+  
+  .popover-body {
+    width: 300px;
+    padding-top: 15px;
+  }
+
+  </style>
+
+  <!-- Select Dropdown
+  ================================================== -->
+
+  <div class="bs-docs-section">
+    <div class="bs-example">
+
+      <button class="example-popover btn btn-primary">Show Popover</button>
+      
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+$(function(){
+
+  var html = ''+
+      '<div class="popover-medium">'+
+        '<div class="popover-title">Popover Title</div>'+
+        '<div class="popover-body">Popover Body</div>'+
+      '</div>';
+
+  var popObj = {
+    $el: $(html)
+  };
+
+  $(".example-popover").click(function () {
+    $.popover.show(popObj, {
+      $target: $(".example-popover"),
+      auto: true
+    });
+  });
+
+});
+</script>
